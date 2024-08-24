@@ -15,6 +15,31 @@ function formatTime(date) {
 function App() {
   const [time, setTime] = useState(formatTime(new Date()));
 
+  const partOfDay = time.slice(-2);
+
+  const workouts = [
+    {
+      name: "Full-body workout",
+      numExercises: partOfDay === "AM" ? 9 : 8,
+    },
+    {
+      name: "Arms + Legs",
+      numExercises: 6,
+    },
+    {
+      name: "Arms only",
+      numExercises: 3,
+    },
+    {
+      name: "Legs only",
+      numExercises: 4,
+    },
+    {
+      name: "Core only",
+      numExercises: partOfDay === "AM" ? 5 : 4,
+    },
+  ];
+
   useEffect(function () {
     const id = setInterval(function () {
       setTime(formatTime(new Date()));
@@ -28,7 +53,7 @@ function App() {
       <h1>Workout Timer</h1>
       <time>For your workout on {time}</time>
       <ToggleSound />
-      <Calculator />
+      <Calculator workouts={workouts} />
     </main>
   );
 }
