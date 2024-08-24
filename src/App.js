@@ -13,6 +13,7 @@ function formatTime(date) {
 }
 
 function App() {
+  const [allowSound, setAllowSound] = useState(true);
   const [time, setTime] = useState(formatTime(new Date()));
 
   const partOfDay = time.slice(-2);
@@ -52,8 +53,8 @@ function App() {
     <main>
       <h1>Workout Timer</h1>
       <time>For your workout on {time}</time>
-      <ToggleSound />
-      <Calculator workouts={workouts} />
+      <ToggleSound allowSound={allowSound} setAllowSound={setAllowSound} />
+      <Calculator workouts={workouts} allowSound={allowSound} />
     </main>
   );
 }
