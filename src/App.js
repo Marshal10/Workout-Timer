@@ -1,8 +1,14 @@
+import Calculator from "./Calculator";
+import ToggleSound from "./ToggleSound";
+
 function App() {
   return (
-    <div className="app">
-      <h1>Hello react</h1>
-    </div>
+    <main>
+      <h1>Workout Timer</h1>
+      <time>For your workout on X</time>
+      <ToggleSound />
+      <Calculator />
+    </main>
   );
 }
 
