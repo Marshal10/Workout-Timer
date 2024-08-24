@@ -1,6 +1,7 @@
 import { useState } from "react";
+import clickSound from "./ClickSound.m4a";
 
-function Calculator({ workouts }) {
+function Calculator({ workouts, allowSound }) {
   const [number, setNumber] = useState(workouts[0].numExercises);
   const [sets, setSets] = useState(3);
   const [speed, setSpeed] = useState(90);
@@ -9,6 +10,12 @@ function Calculator({ workouts }) {
   const duration = (number * sets * speed) / 60 + (sets - 1) * durationBreak;
   const mins = Math.floor(duration);
   const seconds = (duration - mins) * 60;
+
+  const playSound = function () {
+    if (!allowSound) return;
+    const sound = new Audio(clickSound);
+    sound.play();
+  };
 
   return (
     <>
