@@ -1,5 +1,5 @@
 function ToggleSound() {
-  return <button>🔈</button>;
+  return <button className="btn-sound">🔈</button>;
 }
 
 export default ToggleSound;
